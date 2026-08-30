@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+._*
+
+# originály fotek z fotoaparátu — na web se nasazují zmenšené verze v assets/
+assets/fotky na web/
+
+# interní poznámky k buildu, nepatří do klientského repozitáře
+CLAUDE_12.md
+
+# závislosti a build artefakty
+node_modules/
+.vercel/
