@@ -21,33 +21,58 @@
     track.appendChild(clone);
   }
 
-  /* --- 3. odhalování sekcí při scrollu ---------------------------------- */
-  var revealables = [].slice.call(document.querySelectorAll('.r, .r-clip'));
-  function revealAll() { revealables.forEach(function (el) { el.classList.add('in'); }); }
+  /* --- 3. odhalování sekcí při scrollu ----------------------------------
+     Hlavní pohon je revealInView() volané z onScroll — spolehlivě odhalí
+     vše, co se dostane nad spodní hranici výřezu. IntersectionObserver
+     je jen nadstavba pro přesnější načasování; kdyby se neohlásil
+     (rychlý scroll, návrat tlačítkem zpět, obnovení stránky uprostřed),
+     obsah se objeví stejně. Nic nesmí zůstat trvale neviditelné. */
+  var pending = [].slice.call(document.querySelectorAll('.r, .r-clip'));
+  var io = null;
+
+  function reveal(el) {
+    el.classList.add('in');
+    if (io) io.unobserve(el);
+  }
+
+  function revealInView() {
+    if (!pending.length) return;
+    var line = window.innerHeight * 0.92;
+    for (var i = pending.length - 1; i >= 0; i--) {
+      if (pending[i].getBoundingClientRect().top < line) {
+        reveal(pending[i]);
+        pending.splice(i, 1);
+      }
+    }
+  }
 
   if ('IntersectionObserver' in window && !reduced) {
-    var io = new IntersectionObserver(function (entries) {
+    io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        if (!e.isIntersecting) return;
+        reveal(e.target);
+        var at = pending.indexOf(e.target);
+        if (at > -1) pending.splice(at, 1);
       });
     }, { threshold: 0.08, rootMargin: '-8% 0px -4% 0px' });
-    revealables.forEach(function (el) { io.observe(el); });
+    pending.forEach(function (el) { io.observe(el); });
 
-    /* Pojistka: co je po načtení už ve výřezu (nebo nad ním), odhalíme rovnou —
-       observer se u rychlého scrollu nebo při návratu zpět nemusí spustit
-       a obsah by zůstal neviditelný. */
-    var safety = function () {
-      var vh = window.innerHeight;
-      revealables.forEach(function (el) {
-        var r = el.getBoundingClientRect();
-        if (r.top < vh * 0.95) { el.classList.add('in'); io.unobserve(el); }
-      });
-    };
-    safety();
-    window.addEventListener('load', safety);
-    window.addEventListener('pageshow', safety);
+    revealInView();
+    window.addEventListener('load', revealInView);
+    window.addEventListener('pageshow', revealInView);
+    window.addEventListener('resize', revealInView, { passive: true });
+
+    /* Poslední pojistka: krátký interval, který doběhne, jakmile je vše
+       odhalené. Scroll události ani observer se nemusí ohlásit (programový
+       skok na kotvu, obnovení pozice po návratu, líné vykreslování),
+       a bez tohoto by obsah zůstal trvale neviditelný. */
+    var ticker = setInterval(function () {
+      revealInView();
+      if (!pending.length) clearInterval(ticker);
+    }, 350);
   } else {
-    revealAll();
+    pending.forEach(function (el) { el.classList.add('in'); });
+    pending.length = 0;
   }
 
   /* --- 4. header: stav po odscrollování + tlačítko nahoru --------------- */
@@ -58,6 +83,7 @@
     var y = window.scrollY;
     if (header) header.classList.toggle('scrolled', y > 40);
     if (toTop) toTop.classList.toggle('show', y > 900);
+    revealInView();
     parallax();
     ticking = false;
   }
