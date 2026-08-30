@@ -22,7 +22,9 @@
   }
 
   /* --- 3. odhalování sekcí při scrollu ---------------------------------- */
-  var revealables = document.querySelectorAll('.r, .r-clip');
+  var revealables = [].slice.call(document.querySelectorAll('.r, .r-clip'));
+  function revealAll() { revealables.forEach(function (el) { el.classList.add('in'); }); }
+
   if ('IntersectionObserver' in window && !reduced) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -30,8 +32,22 @@
       });
     }, { threshold: 0.08, rootMargin: '-8% 0px -4% 0px' });
     revealables.forEach(function (el) { io.observe(el); });
+
+    /* Pojistka: co je po načtení už ve výřezu (nebo nad ním), odhalíme rovnou —
+       observer se u rychlého scrollu nebo při návratu zpět nemusí spustit
+       a obsah by zůstal neviditelný. */
+    var safety = function () {
+      var vh = window.innerHeight;
+      revealables.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.95) { el.classList.add('in'); io.unobserve(el); }
+      });
+    };
+    safety();
+    window.addEventListener('load', safety);
+    window.addEventListener('pageshow', safety);
   } else {
-    revealables.forEach(function (el) { el.classList.add('in'); });
+    revealAll();
   }
 
   /* --- 4. header: stav po odscrollování + tlačítko nahoru --------------- */
