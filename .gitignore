@@ -12,3 +12,6 @@ CLAUDE_12.md
 node_modules/
 .vercel/
 .env*
+
+# fotky vyřazené z webu
+assets/nepouzite/
