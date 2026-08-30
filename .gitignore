@@ -11,3 +11,4 @@ CLAUDE_12.md
 # závislosti a build artefakty
 node_modules/
 .vercel/
+.env*
