@@ -8,7 +8,7 @@ Statický web bez build kroku — otevřete `index.html` v prohlížeči a fungu
 
 | Soubor | Obsah |
 |---|---|
-| `index.html` | hlavní stránka (hero, služby, o studiu, prostory, ceník, dárkový poukaz, tým, kontakt) |
+| `index.html` | hlavní stránka (hero, služby, o studiu, prostory, ceník, tým, kontakt) |
 | `galerie.html` | fotogalerie studia s lightboxem |
 | `assets/site.css` | design systém a styly pro obě stránky |
 | `assets/site.js` | interakce sdílené oběma stránkami (menu, scroll efekty, záložky ceníku) |
