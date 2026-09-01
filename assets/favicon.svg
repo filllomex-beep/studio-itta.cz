@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Studio Itta">
+  <title>Studio Itta</title>
+  <rect width="64" height="64" rx="13" fill="#2A1A2E"/>
+
+  <!-- Logotyp je vykreslený jako tahy, ne jako <text> — favicon si nenačte webfont
+       a systémové fallbacky se liší stroj od stroje. Geometrický monolineární
+       grotesk odpovídá Poppins Light z hlavičky webu. -->
+  <g transform="translate(0 1.5)" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- studio -->
+    <g stroke="#F5F0F3">
+      <path d="M10.4 21.9C10.4 20.7 9.3 20 7.8 20S5.2 20.7 5.2 21.9c0 2.5 5.2 1.6 5.2 4.2 0 1.2-1.1 1.9-2.6 1.9S5.2 27.3 5.2 26.1"/>
+      <path d="M16.6 16.5V28M14.4 20h4.4"/>
+      <path d="M22.8 20v4a4 4 0 0 0 8 0v-4"/>
+      <circle cx="38.8" cy="24" r="4"/>
+      <path d="M42.8 15v13"/>
+      <path d="M46.8 20v8"/>
+      <circle cx="54.8" cy="24" r="4"/>
+    </g>
+    <circle cx="46.8" cy="16.8" r="1.05" fill="#F5F0F3"/>
+
+    <!-- itta -->
+    <g stroke="#C58FC7">
+      <path d="M17.6 38v8"/>
+      <path d="M23.8 34.5V46M21.6 38h4.4"/>
+      <path d="M32.2 34.5V46M30 38h4.4"/>
+      <circle cx="42.4" cy="42" r="4"/>
+      <path d="M46.4 38v8"/>
+    </g>
+    <circle cx="17.6" cy="34.8" r="1.05" fill="#C58FC7"/>
+
+  </g>
+</svg>
