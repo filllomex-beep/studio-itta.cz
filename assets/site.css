@@ -612,6 +612,9 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
 .footer-bottom{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;padding-top:26px;font-size:12.5px;color:var(--on-deep-2);font-weight:300}
 .footer-bottom a{color:var(--on-deep-2);transition:color .3s var(--e-ui)}
 .footer-bottom a:hover{color:var(--gold)}
+.footer-credit{margin-top:14px;font-size:12.5px;color:var(--on-deep-2);font-weight:300}
+.footer-credit a{color:var(--on-deep-2);transition:color .3s var(--e-ui)}
+.footer-credit a:hover{color:var(--gold)}
 
 /* ---------- back to top ---------- */
 .totop{
