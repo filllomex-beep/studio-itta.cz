@@ -1,7 +1,44 @@
 /* ==========================================================================
-   STUDIO ITTA — lightbox fotogalerie (jen pro galerie.html)
+   STUDIO ITTA — zdivo a lightbox fotogalerie (jen pro galerie.html)
    Ovládání: klik / Enter / mezerník na fotce, šipky, Esc, klik mimo fotku.
    ========================================================================== */
+
+/* --- zdivo: fotky skládáme po řádcích (1., 2., 3. sloupec a znovu od 1.),
+       takže neúplná poslední řada vždy začíná vlevo --- */
+(function () {
+  'use strict';
+
+  var grids = [].slice.call(document.querySelectorAll('.wall-grid'));
+  if (!grids.length || !(window.CSS && CSS.supports('display', 'grid'))) return;
+
+  function layout() {
+    grids.forEach(function (grid) {
+      var cs = getComputedStyle(grid);
+      /* počet sloupců i šířku sloupce počítáme, neměříme — po resize by mřížka
+         ještě obsahovala implicitní sloupce ze starého rozložení a měření by lhalo */
+      var cols = parseInt(cs.getPropertyValue('--cols'), 10) || 1;
+      var gap = parseFloat(cs.columnGap) || 0;
+      var colW = (grid.clientWidth - gap * (cols - 1)) / cols;
+      [].slice.call(grid.children).forEach(function (shot, i) {
+        var img = shot.querySelector('img');
+        var h = colW * img.getAttribute('height') / img.getAttribute('width');
+        shot.style.gridColumn = String(i % cols + 1);
+        /* řádky mřížky mají 1 px: dlaždice zabere výšku fotky + mezeru pod ní */
+        shot.style.gridRowEnd = 'span ' + Math.ceil(h + gap);
+      });
+    });
+  }
+
+  grids.forEach(function (g) { g.classList.add('is-rows'); });
+  layout();
+
+  var raf = 0;
+  window.addEventListener('resize', function () {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(layout);
+  });
+})();
+
 (function () {
   'use strict';
 

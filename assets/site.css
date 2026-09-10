@@ -723,7 +723,14 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
 .wall-head h2{font-size:clamp(23px,2.6vw,34px);font-weight:300;letter-spacing:-.032em}
 
 /* ---------- zdivo ---------- */
-.wall-grid{columns:3;column-gap:var(--gap)}
+.wall-grid{--cols:3;columns:var(--cols);column-gap:var(--gap)}
+/* s JS (galerie.js): fotky jdou po řádcích zleva, neúplná poslední řada tak začíná vlevo;
+   samotné CSS columns řadí po sloupcích a vyrovnáváním výšek zbytek odsouvají doprava */
+.wall-grid.is-rows{
+  display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));
+  grid-auto-rows:1px;grid-auto-flow:row dense;align-items:start;
+}
+.wall-grid.is-rows .shot{margin-bottom:0}
 .shot{
   break-inside:avoid;margin-bottom:var(--gap);position:relative;
   border-radius:var(--radius);overflow:hidden;background:var(--bg-alt);
@@ -792,12 +799,12 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
 .lb-close:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
 @media (max-width:1000px){
-  .wall-grid{columns:2}
+  .wall-grid{--cols:2}
   .lb-prev{left:6px} .lb-next{right:6px}
   .lb-stage{max-width:94vw}
 }
 @media (max-width:600px){
-  .wall-grid{columns:1}
+  .wall-grid{--cols:1}
   .lb-btn{width:42px;height:42px}
   .lb-stage img{max-height:70vh}
 }
