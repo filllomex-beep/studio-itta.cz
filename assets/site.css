@@ -396,6 +396,14 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
   animation:rowIn .6s var(--e-out) forwards;animation-delay:calc(var(--i,0) * 38ms);
 }
 @keyframes rowIn{to{opacity:1;transform:none}}
+/* skupina uvnitř dlouhého panelu (kosmetika): nadpis + krátký popis */
+.price-group{
+  padding:34px 0 8px;
+  opacity:0;transform:translateY(12px);
+  animation:rowIn .6s var(--e-out) forwards;animation-delay:calc(var(--i,0) * 38ms);
+}
+.price-group h4{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.price-group p{margin-top:8px;font-size:13px;line-height:1.6;color:var(--on-deep-2);font-weight:300;max-width:60ch}
 .price-row:hover{background:rgba(245,240,243,.045);padding-left:12px}
 .price-row .name{font-size:15px;font-weight:400;color:var(--on-deep);letter-spacing:-.01em}
 .price-row .meta{display:block;font-size:12px;color:var(--on-deep-2);margin-top:3px;font-weight:300;letter-spacing:.01em}
@@ -676,7 +684,7 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
-  .line>span,.fade-up,.r,.r-clip,.price-row{transform:none !important;opacity:1 !important;clip-path:none !important}
+  .line>span,.fade-up,.r,.r-clip,.price-row,.price-group{transform:none !important;opacity:1 !important;clip-path:none !important}
   .hero-figure{clip-path:none !important}
   .band-track,.strip-track{animation:none !important}
   .striproll{overflow-x:auto}
