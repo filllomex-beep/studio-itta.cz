@@ -445,7 +445,7 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
 }
 .strip-track{
   display:flex;width:max-content;gap:var(--gap);
-  animation:stripscroll 35s linear infinite;will-change:transform;
+  animation:stripscroll 29s linear infinite;will-change:transform;
 }
 .striproll:hover .strip-track,
 .striproll:focus-within .strip-track{animation-play-state:paused}
@@ -458,8 +458,8 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
 .strip-item:hover img{transform:scale(1.05)}
 @keyframes stripscroll{
   from{transform:translate3d(0,0,0)}
-  /* posun přesně o jednu ze tří skupin (včetně mezery za ní) */
-  to  {transform:translate3d(calc(-100% / 3 - var(--gap) / 3),0,0)}
+  /* posun přesně o jednu ze čtyř skupin (včetně mezery za ní) */
+  to  {transform:translate3d(calc(-25% - var(--gap) * 3 / 4),0,0)}
 }
 
 /* ---------- dárkový poukaz ---------- */
