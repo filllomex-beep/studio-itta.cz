@@ -300,7 +300,7 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
   display:grid;place-items:center;flex:none;color:var(--ink-3);
   transition:background-color .4s var(--e-ui), color .4s var(--e-ui), border-color .4s var(--e-ui), transform .4s var(--e-out);
 }
-.svc:hover .svc-arrow{background:var(--brand);border-color:var(--brand);color:#fff;transform:rotate(-45deg)}
+.svc:hover .svc-arrow,.svc-arrow:focus-visible{background:var(--brand);border-color:var(--brand);color:#fff;transform:rotate(-45deg)}
 .svc-foot{margin-top:auto;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--line)}
 .svc-price{font-size:13px;font-weight:500;color:var(--ink);letter-spacing:-.01em}
 .svc-price span{color:var(--ink-3);font-weight:400}

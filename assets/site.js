@@ -171,6 +171,30 @@
     });
   });
 
+  /* kolečko u karty služby: přepne záložku ceníku a doscrolluje k ní.
+     Bez JS funguje jako obyčejná kotva na #cenik. */
+  [].slice.call(document.querySelectorAll('[data-price-tab]')).forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var tab = document.getElementById(link.getAttribute('data-price-tab'));
+      if (!tab) return;
+      e.preventDefault();
+      selectTab(tab);
+
+      /* na mobilu jsou záložky vodorovný pás — vybranou posuneme do středu */
+      var nav = tab.parentNode, nr = nav.getBoundingClientRect(), tr = tab.getBoundingClientRect();
+      nav.scrollLeft += tr.left - nr.left - (nr.width - tr.width) / 2;
+
+      var href = link.getAttribute('href');
+      var target = href === '#cenik' ? document.querySelector('.pricing-grid') : document.querySelector(href);
+      if (!target) return;
+      var offset = (header ? header.getBoundingClientRect().bottom : 0) + 24;
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: reduced ? 'auto' : 'smooth'
+      });
+    });
+  });
+
   /* --- 9. počítadla ve statistikách ------------------------------------- */
   var counters = [].slice.call(document.querySelectorAll('[data-count]'));
   if ('IntersectionObserver' in window && !reduced) {
