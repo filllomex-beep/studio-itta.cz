@@ -723,23 +723,17 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
 }
 .wall-head h2{font-size:clamp(23px,2.6vw,34px);font-weight:300;letter-spacing:-.032em}
 
-/* ---------- zdivo ---------- */
-.wall-grid{--cols:3;columns:var(--cols);column-gap:var(--gap)}
-/* s JS (galerie.js): fotky jdou po řádcích zleva, neúplná poslední řada tak začíná vlevo;
-   samotné CSS columns řadí po sloupcích a vyrovnáváním výšek zbytek odsouvají doprava */
-.wall-grid.is-rows{
-  display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));
-  grid-auto-rows:1px;grid-auto-flow:row dense;align-items:start;
-}
-.wall-grid.is-rows .shot{margin-bottom:0}
+/* ---------- mřížka: všechny dlaždice mají stejný poměr 3:4, řady jsou zarovnané;
+   fotky na šířku se ořezávají (object-position u konkrétní fotky), lightbox ukáže celou ---------- */
+.wall-grid{--cols:3;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:var(--gap)}
 .shot{
-  break-inside:avoid;margin-bottom:var(--gap);position:relative;
+  position:relative;
   border-radius:var(--radius);overflow:hidden;background:var(--bg-alt);
   cursor:pointer;display:block;width:100%;padding:0;border:0;text-align:left;
   transition:transform .55s var(--e-out) var(--d,0s), opacity .8s var(--e-out) var(--d,0s),
              box-shadow .55s var(--e-out);
 }
-.shot img{width:100%;height:auto;display:block;transition:transform 1.1s var(--e-out)}
+.shot img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform 1.1s var(--e-out)}
 .shot:hover{transform:translateY(-5px);box-shadow:0 28px 54px -32px rgba(42,26,46,.55)}
 .shot:hover img{transform:scale(1.05)}
 .shot:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
@@ -800,7 +794,6 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
 .lb-close:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
 @media (max-width:1000px){
-  .wall-grid{--cols:2}
   .lb-prev{left:6px} .lb-next{right:6px}
   .lb-stage{max-width:94vw}
 }
