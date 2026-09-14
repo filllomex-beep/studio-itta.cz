@@ -60,11 +60,16 @@ ul{list-style:none}
 
 .skip{position:absolute;left:-9999px;top:0;z-index:999;background:var(--deep);color:var(--on-deep);padding:12px 20px;border-radius:0 0 12px 0}
 .skip:focus{left:0}
+/* text jen pro čtečky obrazovky a vyhledávače — vizuálně skrytý, v layoutu nezabírá místo */
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 
 /* ---------- layout ---------- */
 .wrap{width:100%;max-width:1280px;margin-inline:auto;padding-inline:var(--pad)}
 .wrap-tight{width:100%;max-width:960px;margin-inline:auto;padding-inline:var(--pad)}
 section{position:relative}
+/* skok na kotvu (menu, přesměrování ze starého webu): štítek sekce nesmí zajet pod plovoucí hlavičku.
+   92 px = spodní hrana hlavičky (~80 px) + 12 px vzduchu; od 1533 px, kde --section dosáhne 92 px, je to 0 */
+main > section[id]{scroll-margin-top:calc(92px - var(--section))}
 
 /* ---------- type ---------- */
 .serif{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:.005em}

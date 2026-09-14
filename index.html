@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studio Itta — kadeřnictví, kosmetika, manikúra a pedikúra v centru Prahy</title>
+  <title>Studio Itta – kadeřnictví, kosmetika, manikúra a pedikúra v centru Prahy</title>
   <meta name="description"
-    content="Studio Itta ve Smečkách 28, Praha 1. Kadeřnictví s italskou kosmetikou Intercosmo, izraelská kosmetika GIGI, manikúra a pedikúra. Objednávky na 777 560 484 (Iveta).">
+    content="Kadeřnictví, kosmetika GIGI, manikúra a pedikúra v centru Prahy u Václavského náměstí. Studio Itta, Ve Smečkách 28, Praha 1. Objednávky: 777 560 484.">
   <meta name="theme-color" content="#2A1A2E">
   <link rel="canonical" href="https://studio-itta.cz/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -18,7 +18,8 @@
   <meta property="og:locale" content="cs_CZ">
   <meta property="og:title" content="Studio Itta — krása v centru Prahy">
   <meta property="og:description" content="Kadeřnictví, kosmetika GIGI, manikúra a pedikúra. Ve Smečkách 28, Praha 1.">
-  <meta property="og:image" content="assets/studio-salon-celkovy-pohled.jpg">
+  <meta property="og:image" content="https://studio-itta.cz/assets/studio-salon-celkovy-pohled.jpg">
+  <meta property="og:url" content="https://studio-itta.cz/">
   <link rel="preload" as="image" href="assets/studio-salon-celkovy-pohled.jpg" fetchpriority="high">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +29,54 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="assets/site.css">
+
+  <!-- strukturovaná data pro vyhledávače: studio a jeho služby -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "Studio Itta",
+  "description": "Kadeřnictví, kosmetika GIGI, manikúra a pedikúra v centru Prahy.",
+  "url": "https://studio-itta.cz/",
+  "image": [
+    "https://studio-itta.cz/assets/studio-salon-celkovy-pohled.jpg",
+    "https://studio-itta.cz/assets/studio-kosmetika-kabinet-zrcadlo.jpg",
+    "https://studio-itta.cz/assets/studio-vyloha-intercosmo.jpg"
+  ],
+  "telephone": "+420777560484",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ve Smečkách 28/595",
+    "postalCode": "110 00",
+    "addressLocality": "Praha 1",
+    "addressCountry": "TODO"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.0794329, "longitude": 14.4274013 },
+  "sameAs": ["https://www.facebook.com/people/Studio-Itta-Praha1/100042617026255/"],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00", "closes": "18:00"
+  }],
+  "priceRange": "60–3 360 Kč",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Služby Studia Itta",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kadeřnictví",
+        "description": "Používáme výhradně profesionální italskou vlasovou kosmetiku Intercosmo — řady Voilà a FreeLimix." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kosmetika GIGI",
+        "description": "Nechte se hýčkat kvalitní izraelskou kosmetikou GIGI s dlouholetou tradicí a nejmodernějšími přístroji." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Depilace",
+        "description": "Nabízíme všechny druhy depilací s pomocí cukrové pasty či vosku — krásná a hladká pleť bez chloupků." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manikúra",
+        "description": "Odstraníme kůžičku, upravíme tvar nehtů a připravíme ploténku — lak či shellac vydrží až tři týdny." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pedikúra",
+        "description": "Mokrá i suchá pedikúra, ošetření zarostlého nehtu, kuřího oka i aplikace rovnátka." } }
+    ]
+  }
+}
+</script>
 </head>
 
 <body>
@@ -95,6 +144,7 @@
         <p class="eyebrow fade-up" style="--d:.15s">V centru Prahy u Václavského náměstí</p>
 
         <h1>
+          <span class="sr-only">Studio Itta – kadeřnictví a kosmetika v centru Prahy.</span>
           <span class="line"><span style="--d:.25s">Studio zaměřené</span></span>
           <span class="line"><span style="--d:.33s">na neustálé zvyšování</span></span>
           <span class="line"><span style="--d:.41s">vaší <em class="serif">přirozené krásy</em></span></span>
@@ -219,7 +269,7 @@
                 style="object-position:center 28%" alt="Manikúrní stolek Studia Itta s obloukovou lampou a stoličkou">
               <span class="svc-inset">
                 <img src="assets/sluzba-manikura.jpg" width="1200" height="1200" loading="lazy"
-                  alt="Detail rukou s upravenou manikúrou a lakem">
+                  alt="Detail ruky s upravenou manikúrou a lakem">
               </span>
             </div>
             <div class="svc-body">
@@ -274,7 +324,7 @@
               <span class="svc-tag">Depilace</span>
               <img src="assets/studio-kosmetika-pristroj.jpg" width="1049" height="1400" loading="lazy"
                 style="object-position:center 46%"
-                alt="Ošetřovna Studia Itta s lehátkem přikrytým bílým prostěradlem, lampou a přístroji">
+                alt="Ošetřovna Studia Itta — lehátko s bílou dekou, ohřívač vosku, lampa s lupou a kosmetický přístroj">
             </div>
             <div class="svc-body">
               <div class="svc-title">
@@ -449,7 +499,7 @@
           <article class="room r" style="--d:.21s">
             <div class="room-media">
               <img src="assets/studio-recepce-detail.jpg" width="1049" height="1400" loading="lazy"
-                alt="Recepční pult Studia Itta s hodinami, poličkou s vlasovými produkty a výhledem do ulice">
+                alt="Kout u vchodu do Studia Itta — nástěnné hodiny, police s vlasovými produkty, bílé křeslo a prosklené dveře do ulice">
             </div>
             <div class="room-cap">
               <span class="n">04 — Vstup</span>
@@ -477,33 +527,33 @@
           </div>
           <div class="strip-group" aria-hidden="true">
             <figure class="strip-item"><img src="assets/studio-kadernictvi-stanoviste.jpg" width="1049" height="1400"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Kadeřnická stanoviště se zrcadly a vozíky na pomůcky"></figure>
             <figure class="strip-item"><img src="assets/studio-myci-boxy-freelimix.jpg" width="1049" height="1400"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Mycí boxy v kadeřnictví pod dřevěným nápisem FreeLimix"></figure>
             <figure class="strip-item"><img src="assets/studio-pedikura-kout.jpg" width="896" height="1195"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Pedikérský kout s křeslem, vozíkem a kyticí pivoněk"></figure>
             <figure class="strip-item"><img src="assets/studio-recepce-freelimix.jpg" width="1600" height="1199"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Recepce Studia Itta s nástěnnými hodinami, nápisem FreeLimix a mycími boxy"></figure>
           </div>
           <div class="strip-group" aria-hidden="true">
             <figure class="strip-item"><img src="assets/studio-kadernictvi-stanoviste.jpg" width="1049" height="1400"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Kadeřnická stanoviště se zrcadly a vozíky na pomůcky"></figure>
             <figure class="strip-item"><img src="assets/studio-myci-boxy-freelimix.jpg" width="1049" height="1400"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Mycí boxy v kadeřnictví pod dřevěným nápisem FreeLimix"></figure>
             <figure class="strip-item"><img src="assets/studio-pedikura-kout.jpg" width="896" height="1195"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Pedikérský kout s křeslem, vozíkem a kyticí pivoněk"></figure>
             <figure class="strip-item"><img src="assets/studio-recepce-freelimix.jpg" width="1600" height="1199"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Recepce Studia Itta s nástěnnými hodinami, nápisem FreeLimix a mycími boxy"></figure>
           </div>
           <div class="strip-group" aria-hidden="true">
             <figure class="strip-item"><img src="assets/studio-kadernictvi-stanoviste.jpg" width="1049" height="1400"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Kadeřnická stanoviště se zrcadly a vozíky na pomůcky"></figure>
             <figure class="strip-item"><img src="assets/studio-myci-boxy-freelimix.jpg" width="1049" height="1400"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Mycí boxy v kadeřnictví pod dřevěným nápisem FreeLimix"></figure>
             <figure class="strip-item"><img src="assets/studio-pedikura-kout.jpg" width="896" height="1195"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Pedikérský kout s křeslem, vozíkem a kyticí pivoněk"></figure>
             <figure class="strip-item"><img src="assets/studio-recepce-freelimix.jpg" width="1600" height="1199"
-                loading="lazy" alt=""></figure>
+                loading="lazy" alt="Recepce Studia Itta s nástěnnými hodinami, nápisem FreeLimix a mycími boxy"></figure>
           </div>
         </div>
       </div>
@@ -947,37 +997,6 @@
   <script src="assets/site.js" defer></script>
 
   <!-- strukturovaná data pro vyhledávače -->
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BeautySalon",
-  "name": "Studio Itta",
-  "description": "Kadeřnictví, kosmetika GIGI, manikúra a pedikúra v centru Prahy.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Ve Smečkách 28/595",
-    "postalCode": "110 00",
-    "addressLocality": "Praha 1",
-    "addressCountry": "CZ"
-  },
-  "geo": { "@type": "GeoCoordinates", "latitude": 50.0794329, "longitude": 14.4274013 },
-  "telephone": "+420777560484",
-  "url": "https://studio-itta.cz/",
-  "image": [
-    "https://studio-itta.cz/assets/studio-salon-celkovy-pohled.jpg",
-    "https://studio-itta.cz/assets/studio-kosmetika-kabinet-zrcadlo.jpg",
-    "https://studio-itta.cz/assets/studio-vyloha-intercosmo.jpg"
-  ],
-  "sameAs": ["https://www.facebook.com/people/Studio-Itta-Praha1/100042617026255/"],
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-    "opens": "08:00", "closes": "18:00"
-  }],
-  "priceRange": "$$"
-}
-</script>
-
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
