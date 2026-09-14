@@ -1,0 +1,27 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/author/admin", "destination": "/", "permanent": true },
+    { "source": "/category/uncategorized", "destination": "/", "permanent": true },
+    { "source": "/kadernictvi", "destination": "/#sluzby", "permanent": true },
+    { "source": "/kontakty", "destination": "/#kontakt", "permanent": true },
+    { "source": "/kosmetika", "destination": "/#sluzby", "permanent": true },
+    { "source": "/kosmetika/kosmetika-gigi-a-depilace", "destination": "/#sluzby", "permanent": true },
+    { "source": "/kosmetika/new-generation-make-up", "destination": "/", "permanent": true },
+    { "source": "/kosmetika/prodluzovani-a-zahustovani-ras", "destination": "/", "permanent": true },
+    { "source": "/manikura", "destination": "/#sluzby", "permanent": true },
+    { "source": "/masaze", "destination": "/", "permanent": true },
+    { "source": "/pedikura", "destination": "/#sluzby", "permanent": true },
+    { "source": "/permanentni-make-up", "destination": "/", "permanent": true },
+    { "source": "/reiki", "destination": "/", "permanent": true },
+    { "source": "/sportovni-masaz", "destination": "/", "permanent": true },
+    { "source": "/uncategorized/nove-i-luxusni-kosmetika-gigi-a-depilace", "destination": "/#sluzby", "permanent": true },
+    { "source": "/uncategorized/pridejte-se-k-nam", "destination": "/#kontakt", "permanent": true },
+    { "source": "/uncategorized/ucinna-rekonstrukce-vlasu", "destination": "/#studio", "permanent": true },
+    { "source": "/uncategorized/:path*", "destination": "/", "permanent": true },
+    { "source": "/wp-admin/:path*", "destination": "/", "permanent": true },
+    { "source": "/wp-login.php", "destination": "/", "permanent": true },
+    { "source": "/feed/:path*", "destination": "/", "permanent": true },
+    { "source": "/xmlrpc.php", "destination": "/", "permanent": true }
+  ]
+}
