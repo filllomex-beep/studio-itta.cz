@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://studio-itta.cz/sitemap.xml
