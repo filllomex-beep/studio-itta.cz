@@ -166,20 +166,26 @@ h3,.h3{font-size:clamp(19px,1.6vw,23px);line-height:1.25;letter-spacing:-.015em;
 .burger[aria-expanded="true"] span:first-child{transform:translateY(3.25px) rotate(45deg)}
 .burger[aria-expanded="true"] span:last-child{transform:translateY(-3.25px) rotate(-45deg)}
 
-/* mobile drawer */
+/* mobile drawer
+   Obsah se centruje přes auto okraje (ne justify-content:center) — když je vyšší než obrazovka,
+   nepřeteče nahoru pod hlavičku, ale drawer se dá odscrollovat. Velikost písma se řídí i výškou
+   okna (svh), aby se na telefonu vešlo celé menu i s tlačítky nad lištu prohlížeče. */
 .drawer{
   position:fixed;inset:0;z-index:99;background:var(--deep);
-  display:flex;flex-direction:column;justify-content:center;gap:6px;
-  padding:100px var(--pad) 40px;
+  display:flex;flex-direction:column;
+  padding:calc(env(safe-area-inset-top) + 96px) var(--pad) calc(env(safe-area-inset-bottom) + 28px);
+  overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
   clip-path:inset(0 0 100% 0);
   transition:clip-path .7s var(--e-out);
   pointer-events:none;
 }
+.drawer > :first-child{margin-top:auto}
+.drawer > :last-child{margin-bottom:auto}
 .drawer.open{clip-path:inset(0 0 0 0);pointer-events:auto}
 /* jen přímé odkazy menu — tlačítka v .drawer-foot si nesou vlastní styl */
 .drawer > a{
-  font-size:clamp(28px,8vw,42px);font-weight:300;letter-spacing:-.03em;color:var(--on-deep);
-  padding:10px 0;border-bottom:1px solid var(--line-deep);
+  font-size:clamp(24px,min(8vw,5.4svh),42px);line-height:1.15;font-weight:300;letter-spacing:-.03em;color:var(--on-deep);
+  padding:clamp(7px,1.4svh,12px) 0;border-bottom:1px solid var(--line-deep);
   opacity:0;transform:translateY(24px);
   transition:opacity .6s var(--e-out), transform .6s var(--e-out), color .3s var(--e-ui);
 }
